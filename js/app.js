@@ -55,7 +55,7 @@ function addNew() {
   creatSec(nSection);
   nSection++;
 }
-// new 3 section ---> to add new section call this function  << addNew() >>
+// new 4 section ---> to add new section call this function  << addNew() >>
 addNew();
 addNew();
 addNew();
