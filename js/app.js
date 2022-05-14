@@ -59,7 +59,7 @@ function addNew() {
 addNew();
 addNew();
 addNew();
-
+addNew();
 // to set the section  active
 const allSection = document.querySelectorAll("section");
 

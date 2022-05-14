@@ -8,8 +8,7 @@
 - css
 - javaScript
 
-#### I created a function to create section.
-
+I created a function to create section.
 and a function to create a nav
 and a function to create a section with navbar with dynamic id and classes
 
