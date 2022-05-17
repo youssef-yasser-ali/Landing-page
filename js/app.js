@@ -1,24 +1,18 @@
 // Define Global Variables
 "use strict";
-const navbarList = document.querySelector("#navbar__list");
+const navbarList = document.getElementById("navbar__list");
 const section = document.querySelector("main");
 // End Global Variables
-
+let nSection = 0;
 // start function
 
-// function to create  elemnet in navbar
-function creatNav(nSection) {
-  // creat nav
-  const html = `
-  <li> <a href="#${nSection}"  class="menu__link" data-nav="Section ${nSection}">section ${nSection}</a></li>`;
-
-  navbarList.insertAdjacentHTML("afterbegin", html);
-}
-
 //function to create new Section
-function creatSec(nSection) {
-  //creat section
-  const html = `      <section id="${nSection}" >
+
+function creatSection() {
+  nSection++;
+  const codeNav = `
+    <li> <a href="#section${nSection}"  class="menu__link" data-nav="Section ${nSection}">section ${nSection}</a></li>`;
+  const codeSectioin = `      <section id="section${nSection}" >
   <div class="landing__container ">
     <h2>Section ${nSection}</h2>
     <p>
@@ -45,33 +39,29 @@ function creatSec(nSection) {
   </div>
 </section>`;
 
-  section.insertAdjacentHTML("beforeend", html);
+  section.insertAdjacentHTML("beforeend", codeSectioin);
+  navbarList.insertAdjacentHTML("beforeend", codeNav);
 }
-let nSection = 1;
 
-//funciton to creat new section and nav dynamic id
-function addNew() {
-  creatNav(nSection);
-  creatSec(nSection);
-  nSection++;
-}
 // new 3 section ---> to add new section call this function  << addNew() >>
-addNew();
-addNew();
-addNew();
-addNew();
+creatSection();
+creatSection();
+creatSection();
 // to set the section  active
 const allSection = document.querySelectorAll("section");
 
-window.onscroll = function () {
+window.onscroll = () => {
+  let active = "";
+  allSection.forEach((section) => {
+    const sectionTop = section.offsetTop;
+    if (scrollY >= sectionTop - 200) {
+      active = section.id;
+    }
+  });
   allSection.forEach((sec) => {
-    if (
-      sec.getBoundingClientRect().top >= -200 &&
-      sec.getBoundingClientRect().top <= 300
-    ) {
+    sec.classList.remove("your-active-class");
+    if (sec.id == active) {
       sec.classList.add("your-active-class");
-    } else {
-      sec.classList.remove("your-active-class");
     }
   });
 };
