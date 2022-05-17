@@ -43,24 +43,11 @@ function creatSection() {
   navbarList.insertAdjacentHTML("beforeend", codeNav);
 }
 
-<<<<<<< HEAD
 // new 3 section ---> to add new section call this function  << addNew() >>
 creatSection();
 creatSection();
 creatSection();
-=======
-//funciton to creat new section and nav dynamic id
-function addNew() {
-  creatNav(nSection);
-  creatSec(nSection);
-  nSection++;
-}
-// new 4 section ---> to add new section call this function  << addNew() >>
-addNew();
-addNew();
-addNew();
-addNew();
->>>>>>> da65abe72d2873de388febfc435f76c8f864aafa
+
 // to set the section  active
 const allSection = document.querySelectorAll("section");
 
