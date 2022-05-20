@@ -3,7 +3,7 @@
 const navbarList = document.getElementById("navbar__list");
 const section = document.querySelector("main");
 // End Global Variables
-let nSection = 0;
+let nSection = 4;
 // start function
 
 //function to create new Section
@@ -11,7 +11,7 @@ let nSection = 0;
 function creatSection() {
   nSection++;
   const codeNav = `
-    <li> <a href="#section${nSection}"  class="menu__link" data-nav="Section ${nSection}">section ${nSection}</a></li>`;
+    <li> <a  class="menu__link" data-nav="section${nSection}">section ${nSection}</a></li>`;
   const codeSectioin = `      <section id="section${nSection}" >
   <div class="landing__container ">
     <h2>Section ${nSection}</h2>
@@ -43,20 +43,38 @@ function creatSection() {
   navbarList.insertAdjacentHTML("beforeend", codeNav);
 }
 
-// new 3 section ---> to add new section call this function  << addNew() >>
-creatSection();
+// new 2 section ---> to add new section call this function  << createSection >>
 creatSection();
 creatSection();
 
-// to set the section  active
+//this is variable must declare after the creating section
 const allSection = document.querySelectorAll("section");
+const allNav = document.querySelectorAll("li a");
 
+// click navbar to  view section
+
+allNav.forEach(function (nav) {
+  nav.addEventListener("click", function () {
+    let navdata = nav.getAttribute("data-nav");
+    document
+      .querySelector(`#${navdata}`)
+      .scrollIntoView({ behavior: "smooth" });
+  });
+});
+// to set the section  active
 window.onscroll = () => {
   let active = "";
   allSection.forEach((section) => {
     const sectionTop = section.offsetTop;
     if (scrollY >= sectionTop - 200) {
       active = section.id;
+    }
+  });
+  allNav.forEach((nav) => {
+    nav.classList.remove("active-nav");
+    let navdata = nav.getAttribute("data-nav");
+    if (navdata == active) {
+      nav.classList.add("active-nav");
     }
   });
   allSection.forEach((sec) => {
