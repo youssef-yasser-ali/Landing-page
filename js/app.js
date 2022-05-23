@@ -3,7 +3,7 @@
 const navbarList = document.getElementById("navbar__list");
 const section = document.querySelector("main");
 // End Global Variables
-let nSection = 4;
+let nSection = 0;
 // start function
 
 //function to create new Section
@@ -43,10 +43,12 @@ function creatSection() {
   navbarList.insertAdjacentHTML("beforeend", codeNav);
 }
 
-// new 2 section ---> to add new section call this function  << createSection >>
+// new 5 section and nav---> to add new section call this function  << createSection >>
 creatSection();
 creatSection();
-
+creatSection();
+creatSection();
+creatSection();
 //this is variable must declare after the creating section
 const allSection = document.querySelectorAll("section");
 const allNav = document.querySelectorAll("li a");
