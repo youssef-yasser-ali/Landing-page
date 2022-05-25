@@ -40,6 +40,7 @@ window.onscroll = () => {
     nav.classList.remove("active-nav");
     let navdata = nav.getAttribute("data-nav");
     if (navdata == active) {
+      nav.classList.add("active-nav");
     }
   });
   allSection.forEach((sec) => {
